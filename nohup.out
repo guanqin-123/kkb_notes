@@ -1,0 +1,22 @@
+[W 10:58:02.829 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 10:58:02.829 NotebookApp] The port 8889 is already in use, trying another port.
+[I 10:58:03.661 NotebookApp] JupyterLab extension loaded from /home/guanqzha/anaconda3/lib/python3.7/site-packages/jupyterlab
+[I 10:58:03.661 NotebookApp] JupyterLab application directory is /home/guanqzha/anaconda3/share/jupyter/lab
+[I 10:58:03.676 NotebookApp] Serving notebooks from local directory: /home/guanqzha/Data
+[I 10:58:03.677 NotebookApp] The Jupyter Notebook is running at:
+[I 10:58:03.677 NotebookApp] http://mercury4.eng.uts.edu.au:8890/?token=4256346efe63e68618b902795a2d90b485c490af7da64c70
+[I 10:58:03.677 NotebookApp]  or http://127.0.0.1:8890/?token=4256346efe63e68618b902795a2d90b485c490af7da64c70
+[I 10:58:03.677 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 10:58:03.703 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/guanqzha/.local/share/jupyter/runtime/nbserver-9270-open.html
+    Or copy and paste one of these URLs:
+        http://mercury4.eng.uts.edu.au:8890/?token=4256346efe63e68618b902795a2d90b485c490af7da64c70
+     or http://127.0.0.1:8890/?token=4256346efe63e68618b902795a2d90b485c490af7da64c70
+[I 10:59:46.093 NotebookApp] 302 GET / (127.0.0.1) 0.50ms
+[I 10:59:46.096 NotebookApp] 302 GET /tree? (127.0.0.1) 0.59ms
+[I 10:59:48.581 NotebookApp] 302 POST /login?next=%2Ftree%3F (127.0.0.1) 1.15ms
+[W 10:59:58.234 NotebookApp] Notebook kkb_notes/week5.ipynb is not trusted
+[I 10:59:58.670 NotebookApp] Kernel started: aab9a3fc-b733-41d7-a7f7-a010b7548283
+[I 11:00:25.460 NotebookApp] Starting buffering for aab9a3fc-b733-41d7-a7f7-a010b7548283:a3c9130b72ef49a3a690d3e6f928c396
