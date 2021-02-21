@@ -14260,10 +14260,14 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>如果你是某P2P租车的技术负责人，你会如何设计个性化推荐和搜索排序: 
-  答： 我觉得这个问题的技术情况和airbnb 实际上是完全相同的的场景，但是可能要包含更加敏感的时效性情况
-  因此： embedding list也适当采用对p(user) 和 p(driver) 做类似的user type embedding,从而形成稠密的矩阵用于减小矩阵大小，提升庞大网约车的数据运算效率，每次用户的连续点击不同listing的连贯行为被称为一个session,如果这次的session最终有成功book一台车，则称为booked session,那个被预定的listing被称为booked listing;这次的session没有成功book一台车，则称为exploratory session。在剔除掉一些质量不好的session后,由这些session我们便可以构建出数据集S，将session中的listing视作word,整个session视作sentence,便可以使用the skip-gram model,并配合negative sampling approach技术进行训练，便可以得到listing embedding。同时，在这里，结合业务场景，可以对the skip-gram model进行一些修改，1在booked session中，将Booked listing作为global context,其将总是出现在每次的滑动窗口内参加训练，毕竟我们模型的目的就是为了更多地促进book行为。2租车行为通常在一个窗口期内都集中在一个固定的地区，所以在用negative sampling approach时应注意多从与正样本相同的一个地区内进行随机采样，以保证样本的均衡。使用listing embedding有很多的好处，其中一个体现在冷启动中，当一个新的listing上线时，我们便可以用与其相似的其它n个listing的embedding的均值作为其embedding
-  对于搜索端，我们已经有了对用户的embedding list model, 当用户使用自己的个人信息和意愿进行搜索时，其将返回给用户最匹配的listing,其中根据匹配程度对listing进行排序，越匹配的放在越前面。</li>
+<li>如果你是某P2P租车的技术负责人，你会如何设计个性化推荐和搜索排序: <ul>
+<li>答： 我觉得这个问题的技术情况和airbnb 实际上是完全相同的的场景，但是可能要包含更加敏感的时效性情况<ul>
+<li>因此： embedding list也适当采用对p(user) 和 p(driver) 做类似的user type embedding,从而形成稠密的矩阵用于减小矩阵大小，提升庞大网约车的数据运算效率，每次用户的连续点击不同listing的连贯行为被称为一个session,如果这次的session最终有成功book一台车，则称为booked session,那个被预定的listing被称为booked listing;这次的session没有成功book一台车，则称为exploratory session。在剔除掉一些质量不好的session后,由这些session我们便可以构建出数据集S，将session中的listing视作word,整个session视作sentence,便可以使用the skip-gram model,并配合negative sampling approach技术进行训练，便可以得到listing embedding。同时，在这里，结合业务场景，可以对the skip-gram model进行一些修改，1在booked session中，将Booked listing作为global context,其将总是出现在每次的滑动窗口内参加训练，毕竟我们模型的目的就是为了更多地促进book行为。2租车行为通常在一个窗口期内都集中在一个固定的地区，所以在用negative sampling approach时应注意多从与正样本相同的一个地区内进行随机采样，以保证样本的均衡。使用listing embedding有很多的好处，其中一个体现在冷启动中，当一个新的listing上线时，我们便可以用与其相似的其它n个listing的embedding的均值作为其embedding</li>
+<li>对于搜索端，我们已经有了对用户的embedding list model, 当用户使用自己的个人信息和意愿进行搜索时，其将返回给用户最匹配的listing,其中根据匹配程度对listing进行排序，越匹配的放在越前面。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
