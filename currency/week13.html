@@ -14281,7 +14281,7 @@ a.anchor-link {
 <li><p>future work:</p>
 <ul>
 <li>时间序列在广告词汇间的直接作用，有待考量，需要重新评估，用户的选择和时间前后是否存在直接关系。</li>
-<li>embedding 的方法，做svd 等等， 基础工作随着数据量的增大，应该并不好用(On3) 应该要有其他embedding ， transformation 和 machine translation 的好办法</li>
+<li>embedding 的方法，做svd 等等， 基础工作随着数据量的增大，应该并不好用(On3 复杂度) 应该要有其他embedding ， transformation 和 machine translation 的好办法</li>
 </ul>
 </li>
 </ul>
@@ -14338,10 +14338,14 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./currency_data/Tianchi/data_format1/user_log_format1.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time_stamp&#39;</span><span class="p">:</span><span class="s1">&#39;str&#39;</span><span class="p">})</span>
+<span class="n">user_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./currency_data/Tianchi/data_format1/user_info_format1.csv&#39;</span><span class="p">)</span>
+<span class="n">train_data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./currency_data/Tianchi/data_format1/train_format1.csv&#39;</span><span class="p">)</span>
+<span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./currency_data/Tianchi/data_format1/test_format1.csv&#39;</span><span class="p">)</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./currency_data/Tianchi/train_format2.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14959,7 +14963,7 @@ action_type
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[SparseFeat(name=&#39;user_id&#39;, vocabulary_size=19112, embedding_dim=10, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b258a03ddd0&gt;, embedding_name=&#39;user_id&#39;, group_name=&#39;default_group&#39;, trainable=True), SparseFeat(name=&#39;merchant_id&#39;, vocabulary_size=4995, embedding_dim=8, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b25887bc7d0&gt;, embedding_name=&#39;merchant_id&#39;, group_name=&#39;default_group&#39;, trainable=True), DenseFeat(name=&#39;prob&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u10&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m10&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_0&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_0&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_2&#39;, dimension=1, dtype=&#39;float32&#39;), SparseFeat(name=&#39;action_type&#39;, vocabulary_size=5, embedding_dim=4, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b25887da310&gt;, embedding_name=&#39;action_type&#39;, group_name=&#39;default_group&#39;, trainable=True), VarLenSparseFeat(sparsefeat=SparseFeat(name=&#39;hist_merchant_id&#39;, vocabulary_size=4995, embedding_dim=8, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b25b887ef90&gt;, embedding_name=&#39;merchant_id&#39;, group_name=&#39;default_group&#39;, trainable=True), maxlen=500, combiner=&#39;mean&#39;, length_name=None, weight_name=None, weight_norm=True), VarLenSparseFeat(sparsefeat=SparseFeat(name=&#39;hist_action_type&#39;, vocabulary_size=5, embedding_dim=4, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b25b887eb50&gt;, embedding_name=&#39;action_type&#39;, group_name=&#39;default_group&#39;, trainable=True), maxlen=500, combiner=&#39;mean&#39;, length_name=None, weight_name=None, weight_norm=True)]
+<pre>[SparseFeat(name=&#39;user_id&#39;, vocabulary_size=19112, embedding_dim=10, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b8a791a4c10&gt;, embedding_name=&#39;user_id&#39;, group_name=&#39;default_group&#39;, trainable=True), SparseFeat(name=&#39;merchant_id&#39;, vocabulary_size=4995, embedding_dim=8, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b8a6fe238d0&gt;, embedding_name=&#39;merchant_id&#39;, group_name=&#39;default_group&#39;, trainable=True), DenseFeat(name=&#39;prob&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;u10&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;m10&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;um9&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;r3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_0&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_2&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_3&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_4&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_5&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_6&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_7&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;age_8&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_0&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_1&#39;, dimension=1, dtype=&#39;float32&#39;), DenseFeat(name=&#39;g_2&#39;, dimension=1, dtype=&#39;float32&#39;), SparseFeat(name=&#39;action_type&#39;, vocabulary_size=5, embedding_dim=4, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b8a791c6210&gt;, embedding_name=&#39;action_type&#39;, group_name=&#39;default_group&#39;, trainable=True), VarLenSparseFeat(sparsefeat=SparseFeat(name=&#39;hist_merchant_id&#39;, vocabulary_size=4995, embedding_dim=8, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b8a791a4c50&gt;, embedding_name=&#39;merchant_id&#39;, group_name=&#39;default_group&#39;, trainable=True), maxlen=500, combiner=&#39;mean&#39;, length_name=None, weight_name=None, weight_norm=True), VarLenSparseFeat(sparsefeat=SparseFeat(name=&#39;hist_action_type&#39;, vocabulary_size=5, embedding_dim=4, use_hash=False, dtype=&#39;int32&#39;, embeddings_initializer=&lt;tensorflow.python.keras.initializers.RandomNormal object at 0x2b8a791a46d0&gt;, embedding_name=&#39;action_type&#39;, group_name=&#39;default_group&#39;, trainable=True), maxlen=500, combiner=&#39;mean&#39;, length_name=None, weight_name=None, weight_norm=True)]
 </pre>
 </div>
 </div>
@@ -15016,10 +15020,25 @@ formulated as a subclassed Layer rather than a Lambda layer.
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-1&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
@@ -15058,12 +15077,12 @@ formulated as a subclassed Layer rather than a Lambda layer.
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>100%|██████████| 17837/17837 [00:00&lt;00:00, 4171618.18it/s]
-100%|██████████| 17837/17837 [00:00&lt;00:00, 4605343.21it/s]
+<pre>100%|██████████| 17837/17837 [00:00&lt;00:00, 3276421.15it/s]
+100%|██████████| 17837/17837 [00:00&lt;00:00, 1740786.94it/s]
 Epoch 1/10
-28/28 [==============================] - 1s 50ms/step - loss: 1.9459 - binary_crossentropy: 1.9459 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
+28/28 [==============================] - 1s 36ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
 Epoch 2/10
-28/28 [==============================] - 1s 39ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
+28/28 [==============================] - 1s 36ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
 Epoch 3/10
 28/28 [==============================] - 1s 36ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
 Epoch 4/10
@@ -15077,17 +15096,59 @@ Epoch 7/10
 Epoch 8/10
 28/28 [==============================] - 1s 36ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
 Epoch 9/10
-28/28 [==============================] - 1s 36ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
+28/28 [==============================] - 1s 35ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
 Epoch 10/10
-28/28 [==============================] - 1s 38ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
-100%|██████████| 6056/6056 [00:00&lt;00:00, 4336071.19it/s]
-100%|██████████| 6056/6056 [00:00&lt;00:00, 4446902.14it/s]
+28/28 [==============================] - 1s 35ms/step - loss: 0.9135 - binary_crossentropy: 0.9135 - val_loss: 0.9338 - val_binary_crossentropy: 0.9338
+100%|██████████| 6056/6056 [00:00&lt;00:00, 996966.21it/s]
+100%|██████████| 6056/6056 [00:00&lt;00:00, 4363632.54it/s]
 </pre>
 </div>
 </div>
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
