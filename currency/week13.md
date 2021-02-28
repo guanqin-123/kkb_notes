@@ -21,7 +21,7 @@ There are two key observations on user behavior data:
 
 - Local Activation: Whether users click or not click an item depends only on part of their related historical behavior.For example, a swimmer will click a recommended goggle mostly due to the fact her recent purchase of bathing suit while not the books in her last week’s shopping list.
 
-#### Background 
+## Background 
 
 CPC(Cost-Per-Click): In CPC advertising systems like the one in Alibaba, advertisements are ranked based on eCPM(effective Cost Per Mille) which is a product of bid price and CTR( Click-Through-Rate).
 
@@ -45,7 +45,7 @@ Overfitting problem is easy to encounter on training such industrial deep networ
 
 ![](https://raw.githubusercontent.com/guanqin-123/kkb_notes/main/currency/currency_data/DIN.png)
 
-### BASE MODEL
+## BASE MODEL
 The base model is composed with two steps:
 
 - Transfer each sparse id feature into a embedded vector space.
@@ -57,7 +57,7 @@ Note that the input contains user behavior sequence ids, of which the length can
 However, going deep into the pooling operation, we will find that much information is lost, that is, it destroys the inner structure of user behavior data. This observation inspires us to design a better model.
 
 
-### DEEP INTEREST NETWORK (DIN) DESIGN
+## DEEP INTEREST NETWORK (DIN) DESIGN
 In our display advertising scenario, we wish our model to truly reveal the relationship between the candidate ad and users’ interest based on their historical behaviors.
 
 As discussed above, behavior data contains two structures: diversity and local activation.
@@ -75,7 +75,7 @@ If both F(U,A) and F(U,B) are high, which means user U is relevant to both ads "
 
 DIN is implemented at a multi-GPU distributed training platform named X-Deep Learning (XDL), which supports model-parallelism and data-parallelism. Due to the high performance and flexibility of XDL platform, we accelerate training process about 10 times and optimize hyparameters automatically with high tuning efficiency.XDL is designed to solve the challenges of training industrial scale deep learning networks with large scale sparse inputs and tens of billions of parameters. 
 
-### My evaluations:
+## My evaluations:
 Employ the embedding technique to cast the original sparse input into low dimensional and dense vectors ii) Bridge with networks like MLPs, RNN, CNN etc. Most of the parameters are focused in the first embedding step which needs to be distributed over multi machines. The second network step can be handled within single machine. Under such circumstance, we architecture the XDL platform is architected in a bridge manner, as shown above, which is composed of three main kinds of components:
 
 - Distributed Embedding Layer: It is a model-parallelism module, parameters of embedding layer are distributed over multi-GPUs. Embedding Layer works as a predefined network unit, which provides with forward and backward modes.
